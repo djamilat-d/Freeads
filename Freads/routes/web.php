@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/acceuil', [AdController::class, 'index'])->name('acceuil');
+Route::get('/annonce/creer',[AdController::class, 'create'])->name('ads.create');
+Route::post('/annonce/enregistrer',[AdController::class, 'store'])->name('ads.store');
+Route::get('/annonce/{id}/modifier',[AdController::class, 'edit'])->name('ads.edit');
+Route::post('/annonce/{id}/update',[AdController::class, 'update'])->name('ads.update');
+Route::post('/annonce/{id}/supprimer',[AdController::class, 'destroy'])->name('ads.destroy');
