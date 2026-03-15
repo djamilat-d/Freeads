@@ -1,4 +1,8 @@
-<h1>Poster Annonce</h1>
+@extends("dashboard")
+@section("logo_text")
+    {{ __('Publier une Annonce') }}
+@endsection
+@section("content")
 <form action="{{ route('ads.store') }}" method="post" enctype="multipart/form-data">
     @csrf 
     <input type="text" name="title" placeholder="Titre de l'annonce" required><br><br>
@@ -15,3 +19,4 @@
     <input type="text" name="location" placeholder="Localition..." required><br><br>
     <button type="submit" class="btn btn-primary">Publier</button>
 </form>
+@endsection

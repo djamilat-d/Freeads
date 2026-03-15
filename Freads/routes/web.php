@@ -26,3 +26,7 @@ Route::post('/annonce/enregistrer',[AdController::class, 'store'])->name('ads.st
 Route::get('/annonce/{id}/modifier',[AdController::class, 'edit'])->name('ads.edit');
 Route::post('/annonce/{id}/update',[AdController::class, 'update'])->name('ads.update');
 Route::post('/annonce/{id}/supprimer',[AdController::class, 'destroy'])->name('ads.destroy');
+
+Route::prefix("/Admin")->name("admin.")->group(function (){
+    Route::get("/user", [ProfileController::class, 'AdminUser'])->name("user");
+});

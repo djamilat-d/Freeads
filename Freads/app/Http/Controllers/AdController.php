@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AdController extends Controller
 {
     public function index(){
-        $ads= Ad::all();
+        $ads= Ad::paginate(10);
 
         return view('ads.acceuil', compact('ads'));
     }

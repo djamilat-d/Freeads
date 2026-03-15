@@ -1,4 +1,8 @@
-<h1>Modifier Annonce</h1>
+@extends("dashboard")
+@section("logo_text")
+    {{ __('Modifier Annonce') }}
+@endsection
+@section("content")
 <form action="{{ route('ads.update', $ad->id) }}" method="post" enctype="multipart/form-data">
     @csrf 
     <input type="text" name="title" value="{{ $ad->title }}" required><br><br>
@@ -15,3 +19,4 @@
     <input type="text" name="location" value="{{ $ad->location }}" required><br><br>
     <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 </form>
+@endsection

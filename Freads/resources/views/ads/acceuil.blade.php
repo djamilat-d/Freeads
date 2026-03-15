@@ -1,4 +1,9 @@
-<nav class="nav-bar">
+@extends("dashboard")
+@section("logo_text")
+    {{ __('Freeads') }}
+@endsection
+@section("content")
+{{-- <nav class="nav-bar">
     <a href="{{ route('acceuil') }}" class="logo">FREEADS</a>
     <div class="nav-links">
         <a href="{{ route('acceuil') }}">Acceuil</a>
@@ -14,10 +19,9 @@
         @endauth
     </div>
     
-</nav>
+</nav> --}}
 
 
-<h1>Annonces</h1>
 
 <div style="display: flex;flex-direction:column;gap:20px;">
     @foreach ($ads as $ad)
@@ -41,4 +45,6 @@
             @endif
         </div>
     @endforeach
+    {{ $ads->links() }}
 </div>
+@endsection
