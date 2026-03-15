@@ -60,8 +60,14 @@ class ProfileController extends Controller
     }
 
     public function AdminUser(){
-        $users = User::all();
+        $users = User::paginate(15);
 
         return view('admin.user', compact('users'));
+    }
+
+    public function deleteUser($id){
+        $user= User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.user');
     }
 }

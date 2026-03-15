@@ -29,4 +29,5 @@ Route::post('/annonce/{id}/supprimer',[AdController::class, 'destroy'])->name('a
 
 Route::prefix("/Admin")->name("admin.")->group(function (){
     Route::get("/user", [ProfileController::class, 'AdminUser'])->name("user");
+    Route::post("/deleteUser-{id}", [ProfileController::class, 'deleteUser'])->name("deleteUser");
 });

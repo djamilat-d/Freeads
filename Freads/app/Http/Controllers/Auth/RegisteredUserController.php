@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'login'=> ['required', 'string', 'max:255','unique:'.User::class],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'phone_number' => ['required', 'string', 'max:20'],
+            'phone_number' => ['required', 'string', 'max:10', 'min:10'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -50,6 +50,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('acceuil', absolute: false));
     }
 }
