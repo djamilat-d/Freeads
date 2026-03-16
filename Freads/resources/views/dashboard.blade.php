@@ -16,6 +16,7 @@
                     </div>
                 </div>
             </div>
+            @yield("second_content")
         </div>
     </div>
 </x-app-layout>
