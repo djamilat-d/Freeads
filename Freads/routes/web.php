@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/acceuil', [AdController::class, 'index'])->name('acceuil');
+Route::get('/acceuil', [AdController::class, 'index'])->middleware(['auth'])->name('acceuil');
 Route::get('/annonce/creer',[AdController::class, 'create'])->name('ads.create');
 Route::post('/annonce/enregistrer',[AdController::class, 'store'])->name('ads.store');
 Route::get('/annonce/{id}/modifier',[AdController::class, 'edit'])->name('ads.edit');
