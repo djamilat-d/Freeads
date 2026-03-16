@@ -30,4 +30,7 @@ Route::post('/annonce/{id}/supprimer',[AdController::class, 'destroy'])->name('a
 Route::prefix("/Admin")->name("admin.")->group(function (){
     Route::get("/user", [ProfileController::class, 'AdminUser'])->name("user");
     Route::post("/deleteUser-{id}", [ProfileController::class, 'deleteUser'])->name("deleteUser");
+    Route::get("/editUser-{id}", [ProfileController::class, 'editUser'])->name('editUser');
+    Route::post("/modifyUser-{id}", [ProfileController::class, 'modifyUser'])->name('modifyUser');
+    Route::post('/AdDestroy-{AdId}-{UserId}',[AdController::class, 'AdDestroy'])->name('AdDestroy');
 });

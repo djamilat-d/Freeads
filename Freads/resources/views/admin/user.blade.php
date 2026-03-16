@@ -31,9 +31,10 @@
                         OUI
                         @endif
                     </td>
-                    <td><a class="btn btn-outline-dark" href="{{--  --}}">Modifier</a></td>
+                    <td><a class="btn btn-outline-dark" href="{{ route('admin.editUser', $user->id) }}">Modifier</a></td>
                     <td>
                         <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST">
+                            @csrf
                             <button type="submit" class="btn btn-outline-danger">Supprimer</button>
                         </form>
                     </td>

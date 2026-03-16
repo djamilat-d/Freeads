@@ -61,4 +61,13 @@ class AdController extends Controller
         }
         return redirect()->route('acceuil');
     }
+
+    public function AdDestroy($AdId, $UserId){
+        if(auth()->user()->admin == 0){
+            return redirect()->route('acceuil');
+        }
+        $ad= Ad::findOrFail($AdId);
+        $ad->delete();
+        return redirect()->route('admin.editUser', $UserId);
+    }
 }
