@@ -27,7 +27,7 @@ Route::get('/annonce/{id}/modifier',[AdController::class, 'edit'])->name('ads.ed
 Route::post('/annonce/{id}/update',[AdController::class, 'update'])->name('ads.update');
 Route::post('/annonce/{id}/supprimer',[AdController::class, 'destroy'])->name('ads.destroy');
 
-Route::prefix("/Admin")->name("admin.")->group(function (){
+Route::prefix("/Admin")->name("admin.")->middleware('auth')->group(function (){
     Route::get("/user", [ProfileController::class, 'AdminUser'])->name("user");
     Route::post("/deleteUser-{id}", [ProfileController::class, 'deleteUser'])->name("deleteUser");
     Route::get("/editUser-{id}", [ProfileController::class, 'editUser'])->name('editUser');

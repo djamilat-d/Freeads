@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AdController extends Controller
 {
     public function index(){
-        $ads= Ad::paginate(10);
+        $ads= Ad::paginate(6);
 
         return view('ads.acceuil', compact('ads'));
     }
@@ -24,7 +24,7 @@ class AdController extends Controller
         $data['user_id']= Auth::id();
         //$data['image'] = "photo.jpeg";
         if($request->hasFile('image')){
-            $n_image=time().'.'.$request->image->extension(); 
+            $n_image=time().'.'.$request->image->extension();
             $request->image->move(public_path('images'),$n_image);
             $data['image'] = 'images/' . $n_image;
         }
@@ -71,3 +71,4 @@ class AdController extends Controller
         return redirect()->route('admin.editUser', $UserId);
     }
 }
+
